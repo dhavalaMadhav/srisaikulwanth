@@ -85,10 +85,13 @@ const Footer = () => {
             Sai Kulwanth Educational Society is situated in the serene town of Anakapalle, Visakhapatnam District, Andhra Pradesh. Our campus provides a peaceful environment conducive to academic excellence.
           </p>
         </div>
-        <div style={{ borderRadius: '2px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.3)' }}>
+        <div style={{ borderRadius: '4px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.3)', display: 'flex', flexDirection: 'column' }}>
+          <div style={{ background: 'rgba(255,255,255,0.05)', padding: '15px 20px', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+            <h5 style={{ margin: 0, color: 'var(--gold)', fontSize: '16px', letterSpacing: '1px' }}>Sai Kulwanth Edu Society</h5>
+          </div>
           <iframe
             title="Sai Kulwanth Educational Society Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.9297538563167!2d82.99843787393527!3d17.691126183383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3948b7d5b9a0a5%3A0x8b9e84fce4b3e1e0!2sAnakapalle%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
+            src="https://maps.google.com/maps?q=17.6881014,83.005051+(Sai%20Kulwanth%20Edu%20Society)&hl=en&z=20&output=embed"
             width="100%"
             height="220"
             style={{ border: 'none', display: 'block' }}

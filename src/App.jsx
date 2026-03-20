@@ -9,6 +9,7 @@ import FeatureCards from './components/FeatureCards';
 import Achievements from './components/Achievements';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
+import SilverJubileeBadge from './components/SilverJubileeBadge';
 
 function App() {
   useEffect(() => {
@@ -30,6 +31,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <SilverJubileeBadge />
       <Navbar />
       <main>
         <Hero />

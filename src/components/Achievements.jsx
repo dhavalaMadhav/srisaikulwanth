@@ -37,7 +37,7 @@ const Achievements = () => {
       overflow: 'hidden'
     }}>
       {/* Decorative BG text */}
-      <div style={{
+      <div className="excellence-bg-text" style={{
         position: 'absolute',
         top: '50%', left: '50%',
         transform: 'translate(-50%, -50%)',
@@ -129,6 +129,14 @@ const Achievements = () => {
         }
         @media (max-width: 1024px) {
           .achievements-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 768px) {
+          .excellence-bg-text {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            letter-spacing: -10px;
+            font-size: clamp(60px, 15vw, 100px) !important;
+          }
         }
         @media (max-width: 600px) {
           .achievements-grid { grid-template-columns: 1fr !important; }

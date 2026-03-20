@@ -1,15 +1,16 @@
 import React, { useRef, useEffect } from 'react';
 
 const companies = [
-  { name: 'Infosys' },
-  { name: 'Wipro' },
-  { name: 'Cognizant' },
-  { name: 'TCS' },
-  { name: 'Accenture' },
-  { name: 'Capgemini' },
-  { name: 'ICICI' },
-  { name: 'KIA' },
-  { name: 'Deccan' },
+  { name: 'Infosys', showName: false, ext: 'svg' },
+  { name: 'Wipro', showName: true },
+  { name: 'Cognizant', showName: false, ext: 'svg' },
+  { name: 'TCS', showName: false },
+  { name: 'Accenture', showName: true },
+  { name: 'Capgemini', showName: true },
+  { name: 'ICICI', showName: true },
+  { name: 'KIA', showName: false },
+  { name: 'Deccan', showName: false, ext: 'svg' },
+  { name: 'HDFC', showName: false, ext: 'svg' },
 ];
 
 const Recruiters = () => {
@@ -114,13 +115,30 @@ const Recruiters = () => {
         }}
       >
         {allCompanies.map((company, i) => (
-          <div key={i} className="recruiter-logo-card">
-            <span>{company.name}</span>
+          <div key={i} className="recruiter-logo-card" title={company.name}>
+            <img
+              src={`/Recruiters/${company.name}.${company.ext || 'png'}`}
+              alt={`${company.name} logo`}
+              style={{
+                maxWidth: company.showName ? '40px' : '80%',
+                maxHeight: '60%',
+                objectFit: 'contain',
+                marginRight: company.showName ? '10px' : '0'
+              }}
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.nextSibling.style.display = 'block';
+              }}
+            />
+            <span style={{ display: company.showName ? 'block' : 'none', whiteSpace: 'nowrap' }}>
+              {company.name}
+            </span>
           </div>
         ))}
       </div>
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .recruiters-track::-webkit-scrollbar { display: none; }
         .recruiter-logo-card {
           flex: 0 0 clamp(120px, 15vw, 180px);

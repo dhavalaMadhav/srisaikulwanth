@@ -40,28 +40,23 @@ const EventSocialInfo = () => {
         flexDirection: 'column',
         justifyContent: 'center'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '30px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
           <span style={{ 
-            fontSize: 'clamp(40px, 6vw, 60px)', 
-            fontWeight: 'bold', 
-            color: '#ff69b4', 
+            fontSize: 'clamp(60px, 8vw, 80px)', 
+            fontWeight: '900', 
+            color: 'var(--gold)', 
             lineHeight: '1',
             marginRight: '15px' 
-          }}>22</span>
+          }}>25</span>
           <div>
-            <div style={{ fontWeight: 'bold', letterSpacing: '2px' }}>NOV</div>
-            <div style={{ opacity: '0.7' }}>2025</div>
+            <div style={{ fontWeight: 'bold', letterSpacing: '3px', fontSize: '20px', color: 'var(--gold)' }}>YEARS</div>
+            <div style={{ opacity: '0.9', letterSpacing: '1px', textTransform: 'uppercase', fontSize: '13px' }}>Silver Jubilee</div>
           </div>
         </div>
-        <h3 style={{ fontSize: 'clamp(20px, 3vw, 24px)', marginBottom: '20px' }}>Annual Convocation 2025</h3>
-        <p style={{ opacity: '0.8', marginBottom: '30px', fontSize: '15px' }}>
-          Join us for the Annual celebration at Sai Kulwanth Educational Society, Anakapalle.
+        <h3 style={{ fontSize: 'clamp(20px, 3vw, 24px)', marginBottom: '15px', letterSpacing: '1px' }}>A Legacy of Excellence</h3>
+        <p style={{ opacity: '0.9', lineHeight: '1.6', fontSize: 'clamp(14px, 1.8vw, 16px)' }}>
+          Celebrating 25 years of unwavering commitment to value-based Integral Education. Thank you to everyone who has been part of our phenomenal journey since the beginning!
         </p>
-        <button
-          className="btn-outline"
-          style={{ alignSelf: 'flex-start' }}
-          onClick={() => scrollToSection('facilities')}
-        >VIEW ALL EVENTS</button>
       </div>
 
       {/* MIDDLE: SOCIAL MEDIA */}

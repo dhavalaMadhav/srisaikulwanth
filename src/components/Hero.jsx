@@ -13,7 +13,7 @@ const Hero = () => {
     }, { threshold: 0.1 });
 
     if (heroRef.current) observer.observe(heroRef.current);
-    
+
     return () => observer.disconnect();
   }, []);
 
@@ -23,16 +23,16 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="hero" style={{ 
-      minHeight: '100vh', 
-      padding: '0', 
+    <section id="home" className="hero" style={{
+      minHeight: '100vh',
+      padding: '0',
       display: 'flex',
       flexDirection: 'column',
       position: 'relative'
     }}>
-      <div className="parallax-bg" style={{ backgroundImage: "url('/images/hero_bg.png')" }}></div>
+      <div className="parallax-bg custom-hero-bg"></div>
       <div className="overlay"></div>
-      
+
       <div className="hero-container" style={{
         position: 'relative',
         zIndex: '1',
@@ -52,18 +52,18 @@ const Hero = () => {
           justifyContent: 'center',
           textAlign: 'inherit'
         }}>
-          <span style={{ 
-            color: 'var(--gold)', 
-            textTransform: 'uppercase', 
-            letterSpacing: '3px', 
+          <span style={{
+            color: 'var(--gold)',
+            textTransform: 'uppercase',
+            letterSpacing: '3px',
             fontWeight: '600',
             marginBottom: '20px'
           }}>
             Welcome to Excellence
           </span>
-          
-          <h1 style={{ 
-            fontSize: 'clamp(32px, 8vw, 72px)', 
+
+          <h1 style={{
+            fontSize: 'clamp(32px, 8vw, 72px)',
             fontWeight: '500',
             lineHeight: '1.1',
             marginBottom: '10px'
@@ -71,19 +71,19 @@ const Hero = () => {
             SAI <br />
             KULWANTH
           </h1>
-          
+
           <div className="accent-line"></div>
-          
-          <div className="affiliation-info" style={{ 
-            fontSize: '14px', 
-            opacity: '0.8', 
+
+          <div className="affiliation-info" style={{
+            fontSize: '14px',
+            opacity: '0.8',
             marginBottom: '20px',
             textTransform: 'uppercase',
-            letterSpacing: '1px' 
+            letterSpacing: '1px'
           }}>
             Affiliated with Andhra University, Visakhapatnam | Established 2005
           </div>
-          
+
           <div style={{
             margin: '30px 0',
             maxWidth: '600px'
@@ -140,7 +140,7 @@ const Hero = () => {
                 Offering both Intermediate &amp; Degree programs.
               </p>
             </div>
-            
+
             {/* Quick Links */}
             <div className="links-card" style={{
               flex: '1',
@@ -165,11 +165,25 @@ const Hero = () => {
         </div>
       </div>
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .notice-card:hover, .links-card:hover {
           transform: translateY(-10px);
           box-shadow: 0 10px 40px rgba(0,0,0,0.3);
           z-index: 10;
+        }
+        .custom-hero-bg {
+          background-image: url('/images/Sai%20Kulwanth%20Landscape.png');
+        }
+        @media (max-width: 768px) {
+          .custom-hero-bg {
+            background-image: url('/images/Sai%20Kulwanth%20Mobile%20View.png');
+            background-size: cover !important;
+            background-position: center top !important;
+          }
+          .hero-left {
+            padding-bottom: 200px !important;
+          }
         }
         @media (max-width: 1024px) {
           .hero-left { 
