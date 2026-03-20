@@ -2,10 +2,13 @@ import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import EventSocialInfo from './components/EventSocialInfo';
+import Courses from './components/Courses';
+import Recruiters from './components/Recruiters';
 import AboutFacilitiesWhy from './components/AboutFacilitiesWhy';
 import FeatureCards from './components/FeatureCards';
-import Stats from './components/Stats';
+import Achievements from './components/Achievements';
 import Footer from './components/Footer';
+import BackToTop from './components/BackToTop';
 
 function App() {
   useEffect(() => {
@@ -30,19 +33,29 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        
         <EventSocialInfo />
         
         <div className="fade-in">
           <AboutFacilitiesWhy />
         </div>
         
+        <div className="fade-in">
+          <Courses />
+        </div>
+        
+        <div className="fade-in">
+          <Recruiters />
+        </div>
+        
         <FeatureCards />
         
         <div className="fade-in">
-          <Stats />
+          <Achievements />
         </div>
       </main>
       <Footer />
+      <BackToTop />
       
       <style dangerouslySetInnerHTML={{ __html: `
         .app-container {

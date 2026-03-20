@@ -17,6 +17,11 @@ const EventSocialInfo = () => {
     return () => observer.disconnect();
   }, []);
 
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <section className="event-social-info" ref={sectionRef} style={{ 
       display: 'grid', 
@@ -50,9 +55,13 @@ const EventSocialInfo = () => {
         </div>
         <h3 style={{ fontSize: 'clamp(20px, 3vw, 24px)', marginBottom: '20px' }}>Annual Convocation 2025</h3>
         <p style={{ opacity: '0.8', marginBottom: '30px', fontSize: '15px' }}>
-          Join us for the Annual celebration at Sri Sai Kulwanth University, Anakapalle.
+          Join us for the Annual celebration at Sai Kulwanth Educational Society, Anakapalle.
         </p>
-        <button className="btn-outline" style={{ alignSelf: 'flex-start' }}>VIEW ALL EVENTS</button>
+        <button
+          className="btn-outline"
+          style={{ alignSelf: 'flex-start' }}
+          onClick={() => scrollToSection('facilities')}
+        >VIEW ALL EVENTS</button>
       </div>
 
       {/* MIDDLE: SOCIAL MEDIA */}
@@ -90,9 +99,9 @@ const EventSocialInfo = () => {
         justifyContent: 'center'
       }}>
         <p style={{ fontSize: '16px', lineHeight: '1.8', marginBottom: '20px' }}>
-          Sri Sai Kulwanth University (established at Anakapalle, 2005) follows the model of value-based Integral Education.
+          Sai Kulwanth Educational Society (established at Anakapalle, 2005) follows the model of value-based Integral Education, offering both Intermediate and Degree programs.
         </p>
-        <a href="#" style={{ 
+        <a href="#courses" onClick={e => { e.preventDefault(); scrollToSection('courses'); }} style={{ 
           color: 'var(--gold)', 
           textDecoration: 'none', 
           fontWeight: '600',

@@ -17,8 +17,13 @@ const Hero = () => {
     return () => observer.disconnect();
   }, []);
 
+  const scrollToSection = (sectionId) => {
+    const el = document.getElementById(sectionId);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
-    <section className="hero" style={{ 
+    <section id="home" className="hero" style={{ 
       minHeight: '100vh', 
       padding: '0', 
       display: 'flex',
@@ -63,7 +68,7 @@ const Hero = () => {
             lineHeight: '1.1',
             marginBottom: '10px'
           }}>
-            SRI SAI <br />
+            SAI <br />
             KULWANTH
           </h1>
           
@@ -93,8 +98,8 @@ const Hero = () => {
               "True Education is that which fosters the full development of a human being's inherent divinity."
             </p>
             <div style={{ textAlign: 'center' }}>
-              <strong style={{ display: 'block', fontSize: '18px' }}>SRI SAI KULWANTH</strong>
-              <small style={{ opacity: '0.8' }}>Founder & Inspiration</small>
+              <strong style={{ display: 'block', fontSize: '18px' }}>SAI KULWANTH</strong>
+              <small style={{ opacity: '0.8' }}>Founder &amp; Inspiration</small>
             </div>
           </div>
         </div>
@@ -114,7 +119,7 @@ const Hero = () => {
             display: 'flex',
             height: 'clamp(200px, 40vh, 320px)',
             marginBottom: '0px',
-            transform: 'translateY(-40px)' /* Moved up to avoid overlap */
+            transform: 'translateY(-40px)'
           }}>
             {/* Notice Board */}
             <div className="notice-card" style={{
@@ -128,7 +133,12 @@ const Hero = () => {
               cursor: 'pointer'
             }}>
               <h3 style={{ fontSize: 'clamp(18px, 2vw, 22px)', fontWeight: 'bold', marginBottom: '15px' }}>NOTICE BOARD</h3>
-              <p style={{ opacity: '0.9', fontSize: 'clamp(12px, 1.5vw, 14px)' }}>Admissions are now open for Sai Kulwanth Degree College, Anakapalle. Affiliated with Andhra University.</p>
+              <p style={{ opacity: '0.9', fontSize: 'clamp(12px, 1.5vw, 14px)' }}>
+                Admissions are now open for Sai Kulwanth Educational Society, Anakapalle. Affiliated with Andhra University.
+              </p>
+              <p style={{ opacity: '0.85', fontSize: 'clamp(12px, 1.5vw, 13px)', marginTop: '10px' }}>
+                Offering both Intermediate &amp; Degree programs.
+              </p>
             </div>
             
             {/* Quick Links */}
@@ -145,10 +155,10 @@ const Hero = () => {
             }}>
               <h3 style={{ fontSize: 'clamp(18px, 2vw, 22px)', fontWeight: 'bold', marginBottom: '15px' }}>QUICK LINKS</h3>
               <ul style={{ listStyle: 'none', padding: '0', fontSize: 'clamp(12px, 1.5vw, 14px)', lineHeight: '1.8' }}>
-                <li>Academic Calendar</li>
-                <li>Examination Results</li>
-                <li>Admission Portal</li>
-                <li>AU Affiliation Info</li>
+                <li style={{ cursor: 'pointer', fontWeight: '500' }} onClick={() => scrollToSection('courses')}>Our Courses</li>
+                <li style={{ cursor: 'pointer', fontWeight: '500' }} onClick={() => scrollToSection('achievements')}>Achievements</li>
+                <li style={{ cursor: 'pointer', fontWeight: '500' }} onClick={() => scrollToSection('facilities')}>Facilities</li>
+                <li style={{ cursor: 'pointer', fontWeight: '500' }} onClick={() => scrollToSection('contact')}>Contact Us</li>
               </ul>
             </div>
           </div>
