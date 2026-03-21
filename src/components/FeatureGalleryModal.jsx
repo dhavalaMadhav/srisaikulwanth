@@ -66,6 +66,8 @@ const FeatureGalleryModal = ({ isOpen, onClose, category }) => {
       'WhatsApp Image 2025-03-07 at 1.24.13 PM.jpeg',
       'WhatsApp Image 2025-03-07 at 2.01.18 PM.jpeg',
       'WhatsApp Image 2025-03-07 at 4.26.42 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.26.43 PM (1).jpeg',
+      'WhatsApp Image 2025-03-07 at 4.26.44 PM (1).jpeg',
       'WhatsApp Image 2025-03-07 at 4.26.44 PM.jpeg',
       'WhatsApp Image 2025-03-07 at 4.26.54 PM.jpeg',
       'WhatsApp Image 2025-03-07 at 4.46.42 PM.jpeg',
@@ -102,8 +104,8 @@ const FeatureGalleryModal = ({ isOpen, onClose, category }) => {
   // Map category title to the public subfolder name
   const folderMap = {
     'Academics': 'Academics',
-    'Arts & Culture': 'Arts & culture',
-    'Campus Life': 'Campus life',
+    'Arts & Culture': 'Arts & Culture',
+    'Campus Life': 'Campus Life',
     'Spiritual Heritage': 'Spiritual Heritage',
     'Sports': 'Sports',
   };
@@ -112,9 +114,11 @@ const FeatureGalleryModal = ({ isOpen, onClose, category }) => {
     const folder = folderMap[category] || '';
     const files = categoryImageMap[category] || [];
     return files.map((filename, i) => {
-      // Encode each path segment so spaces → %20; CSS background-image requires valid URLs
+      // Encode each path segment so spaces → %20; CSS background-image requires valid URLs.
+      // We purposefully un-encode '%26' back to '&' because the Vite dev server's static asset router
+      // fails to match physical folders when the '&' is encoded as '%26'.
       const path = folder
-        ? `/${encodeURIComponent(folder)}/${encodeURIComponent(filename)}`
+        ? `/${encodeURIComponent(folder).replace(/%26/g, '&')}/${encodeURIComponent(filename).replace(/%26/g, '&')}`
         : `https://picsum.photos/seed/${i}/800/600`;
       return {
         id: i,
@@ -594,11 +598,12 @@ const FeatureGalleryModal = ({ isOpen, onClose, category }) => {
           .gallery-grid {
             grid-template-columns: repeat(3, 1fr) !important;
             grid-auto-rows: clamp(80px, 25vw, 120px) !important;
-            flex: none;
-            max-height: calc(90vh - 100px) !important;
+            flex: 1 !important;
+            max-height: none !important;
             height: auto;
             overflow-y: auto;
             padding-right: 5px;
+            padding-bottom: 30px !important;
             gap: 8px;
           }
           
