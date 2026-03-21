@@ -43,7 +43,7 @@ const Achievements = () => {
         transform: 'translate(-50%, -50%)',
         fontSize: 'clamp(80px, 20vw, 200px)',
         fontWeight: '900',
-        color: 'rgba(0,0,0,0.03)',
+        color: 'rgba(0,0,0,0.08)',
         whiteSpace: 'nowrap',
         pointerEvents: 'none',
         fontFamily: 'var(--header-font)',

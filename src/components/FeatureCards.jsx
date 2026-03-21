@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import FeatureGalleryModal from './FeatureGalleryModal';
 
 const FeatureCards = () => {
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState(null);
+
+  const handleCardClick = (title) => {
+    setActiveCategory(title);
+    setIsGalleryOpen(true);
+  };
+
   const cards = [
     { title: 'Campus Life', img: '/images/campus_life.png' },
     { title: 'Academics', img: '/images/academics.png' },
@@ -18,7 +27,7 @@ const FeatureCards = () => {
       backgroundColor: 'var(--deep-blue)'
     }}>
       {cards.map((card, index) => (
-        <div key={index} className="feature-card" style={{
+        <div key={index} className="feature-card" onClick={() => handleCardClick(card.title)} style={{
           flex: '1',
           position: 'relative',
           overflow: 'hidden',
@@ -108,6 +117,13 @@ const FeatureCards = () => {
           .card-overlay { background: rgba(0,0,0,0.4); }
         }
       `}} />
+
+      {/* Render the modal */}
+      <FeatureGalleryModal 
+        isOpen={isGalleryOpen} 
+        onClose={() => setIsGalleryOpen(false)} 
+        category={activeCategory} 
+      />
     </section>
   );
 };
