@@ -15,16 +15,116 @@ const FeatureGalleryModal = ({ isOpen, onClose, category }) => {
     }
   }, [isOpen]);
 
-  // Generate some mock placeholder data based on the category
+  // Real images from the public folder, mapped by category
+  const categoryImageMap = {
+    'Academics': [
+      'IMG-20251122-WA0422.jpg',
+      'IMG-20251224-WA03521.jpg',
+      'IMG-20251224-WA0352.jpg',
+      'IMG-20260309-WA0016.jpg',
+      'IMG-20260309-WA0101.jpg',
+      'IMG-20260309-WA0114.jpg',
+      'IMG-20260309-WA0115.jpg',
+      'IMG-20260309-WA0122.jpg',
+      'IMG-20260309-WA0160.jpg',
+      'IMG-20260309-WA0171.jpg',
+      'Recoverd_jpg_file3471.jpg',
+      'WhatsApp Image 2025-03-07 at 1.11.18 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 1.13.57 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 1.54.58 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 1.55.27 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 1.55.35 PM.jpeg',
+
+      'WhatsApp Image 2025-03-07 at 4.26.56 PM.jpeg',
+
+      'WhatsApp Image 2025-03-07 at 4.45.27 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.46.32 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.46.34 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.46.37 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.46.39 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.47.01 PM.jpeg',
+    ],
+    'Arts & Culture': [
+      'WhatsApp Image 2025-03-07 at 1.17.02 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.05.04 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.26.42 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.26.42.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.26.43 PM (1).jpeg',
+      'WhatsApp Image 2025-03-07 at 4.26.44 PM (1).jpeg',
+      'WhatsApp Image 2025-03-07 at 4.26.44 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.26.54 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.26.55 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.46.40 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.46.42 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.46.47 PM (1).jpeg',
+      'WhatsApp Image 2025-03-07 at 4.46.49 PM (1).jpeg',
+      'WhatsApp Image 2025-03-07 at 4.46.49 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.46.52 PM.jpeg',
+    ],
+    'Campus Life': [
+      'WhatsApp Image 2025-03-07 at 1.17.02 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 1.24.13 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 2.01.18 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.26.42 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.26.44 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.26.54 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.46.42 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.46.44 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.46.47 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.46.49 PM.jpeg',
+    ],
+    'Spiritual Heritage': [
+      '20260123_112109.jpeg',
+      '20260123_113621.jpg.jpeg',
+      'IMG-20250222-WA0241.jpg',
+      'IMG-20251123-WA0015.jpg',
+      'IMG-20260309-WA0140.jpg',
+      'WhatsApp Image 2025-03-07 at 1.17.04 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 1.24.13 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.37.13 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.37.13.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.37.14.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.37.14 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.37.14.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.46.54 PM.jpeg',
+    ],
+    'Sports': [
+      '1113895-ko.webp',
+      '5-1-300x200.jpeg',
+      'A5-scaled.jpg',
+      'WhatsApp Image 2025-03-07 at 4.26.42 PM.jpeg',
+      'WhatsApp Image 2025-03-07 at 4.26.44 PM.jpeg',
+      'hq720.jpg',
+      's1-kho-kho.webp',
+    ],
+  };
+
+  // Map category title to the public subfolder name
+  const folderMap = {
+    'Academics': 'Academics',
+    'Arts & Culture': 'Arts & culture',
+    'Campus Life': 'Campus life',
+    'Spiritual Heritage': 'Spiritual Heritage',
+    'Sports': 'Sports',
+  };
+
   const mockImages = React.useMemo(() => {
-    return Array(15).fill(0).map((_, i) => ({
-      id: i,
-      url: `https://picsum.photos/seed/${category}${i}/800/600`,
-      thumbnail: `https://picsum.photos/seed/${category}${i}/150/150`,
-      title: `${category ? category.toUpperCase() : 'EVENT'} MOMENT ${i + 1}`,
-      credit: 'R. SHARMA',
-      tags: [category?.toUpperCase() || 'GALLERY']
-    }));
+    const folder = folderMap[category] || '';
+    const files = categoryImageMap[category] || [];
+    return files.map((filename, i) => {
+      // Encode each path segment so spaces → %20; CSS background-image requires valid URLs
+      const path = folder
+        ? `/${encodeURIComponent(folder)}/${encodeURIComponent(filename)}`
+        : `https://picsum.photos/seed/${i}/800/600`;
+      return {
+        id: i,
+        url: path,
+        thumbnail: path,
+        title: `${category ? category.toUpperCase() : 'EVENT'} MOMENT ${i + 1}`,
+        credit: 'SRI SAI KULWANTH',
+        tags: [category?.toUpperCase() || 'GALLERY'],
+      };
+    });
   }, [category]);
 
   const activeImage = hoveredImage || mockImages[0];
@@ -69,15 +169,15 @@ const FeatureGalleryModal = ({ isOpen, onClose, category }) => {
           {/* Left Side - Image Grid */}
           <div className="gallery-grid">
             {mockImages.map((img) => (
-              <div 
-                key={img.id} 
+              <div
+                key={img.id}
                 className={`gallery-grid-item ${activeImage.id === img.id ? 'active' : ''}`}
                 onMouseEnter={() => setHoveredImage(img)}
                 onClick={() => {
                   setHoveredImage(img);
                   setIsMobilePreviewOpen(true);
                 }}
-                style={{ backgroundImage: `url(${img.thumbnail})` }}
+                style={{ backgroundImage: `url("${img.thumbnail}")` }}
               >
               </div>
             ))}
@@ -86,12 +186,12 @@ const FeatureGalleryModal = ({ isOpen, onClose, category }) => {
           {/* Right Side - Preview Panel */}
           <div className="gallery-preview">
             <div className="preview-card">
-              <div 
-                className="preview-image" 
-                style={{ backgroundImage: `url(${activeImage.url})`, cursor: 'zoom-in' }}
+              <div
+                className="preview-image"
+                style={{ backgroundImage: `url("${activeImage.url}")`, cursor: 'zoom-in' }}
                 onClick={() => setIsFullScreen(true)}
               ></div>
-              
+
               <div className="preview-details">
                 <button className="mobile-back-btn" onClick={() => setIsMobilePreviewOpen(false)}>
                   &larr; Back to Gallery
@@ -108,10 +208,10 @@ const FeatureGalleryModal = ({ isOpen, onClose, category }) => {
                   <button className="thumb-nav" onClick={handlePrevThumbnails} disabled={thumbnailIndex === 0} style={{ opacity: thumbnailIndex === 0 ? 0.3 : 1, cursor: thumbnailIndex === 0 ? 'default' : 'pointer' }}>&lt;</button>
                   <div className="preview-thumbnails">
                     {mockImages.slice(thumbnailIndex, thumbnailIndex + 5).map((img, idx) => (
-                      <div 
-                        key={idx} 
+                      <div
+                        key={idx}
                         className={`preview-thumb ${activeImage.id === img.id ? 'active' : ''}`}
-                        style={{ backgroundImage: `url(${img.thumbnail})` }}
+                        style={{ backgroundImage: `url("${img.thumbnail}")` }}
                         onClick={() => setHoveredImage(img)}
                       ></div>
                     ))}
@@ -147,7 +247,8 @@ const FeatureGalleryModal = ({ isOpen, onClose, category }) => {
         </div>
       )}
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .gallery-modal-overlay {
           position: fixed;
           top: 0;
