@@ -42,15 +42,16 @@ const Hero = () => {
         width: '100%',
         flexWrap: 'wrap'
       }}>
-        {/* LEFT SIDE (Main Hero Content) */}
-        <div className="hero-left fade-in" ref={heroRef} style={{
-          flex: '1 0 60%',
-          minWidth: '320px',
-          padding: 'clamp(100px, 15vh, 150px) 5% 60px 10%',
+        {/* Main Hero Content - Centered */}
+        <div className="hero-content fade-in" ref={heroRef} style={{
+          flex: '1 0 100%',
+          margin: '0 auto',
+          padding: 'clamp(100px, 15vh, 150px) 5%',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          textAlign: 'inherit'
+          textAlign: 'center',
+          alignItems: 'center'
         }}>
           <span style={{
             color: 'var(--gold)',
@@ -72,7 +73,7 @@ const Hero = () => {
             KULWANTH
           </h1>
 
-          <div className="accent-line"></div>
+          <div className="accent-line" style={{ margin: '20px auto' }}></div>
 
           <div className="affiliation-info" style={{
             fontSize: '14px',
@@ -85,7 +86,7 @@ const Hero = () => {
           </div>
 
           <div style={{
-            margin: '30px 0',
+            margin: '30px auto 0 auto',
             maxWidth: '600px'
           }}>
             <p style={{
@@ -103,108 +104,64 @@ const Hero = () => {
             </div>
           </div>
         </div>
+      </div>
 
-        {/* RIGHT SIDE (Notice & Links) */}
-        <div className="hero-right" style={{
-          flex: '1 0 40%',
-          minWidth: '320px',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flex-end',
-          padding: '0',
-          position: 'relative',
-          zIndex: '2'
-        }}>
-          <div className="hero-cards-container" style={{
-            display: 'flex',
-            height: 'clamp(200px, 40vh, 320px)',
-            marginBottom: '0px',
-            transform: 'translateY(-40px)'
-          }}>
-            {/* Notice Board */}
-            <div className="notice-card" style={{
-              flex: '1',
-              backgroundColor: 'var(--red)',
-              padding: 'clamp(20px, 4vw, 40px)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              transition: 'var(--transition-smooth)',
-              cursor: 'pointer'
-            }}>
-              <h3 style={{ fontSize: 'clamp(18px, 2vw, 22px)', fontWeight: 'bold', marginBottom: '15px' }}>NOTICE BOARD</h3>
-              <p style={{ opacity: '0.9', fontSize: 'clamp(12px, 1.5vw, 14px)' }}>
-                Admissions are now open for Sai Kulwanth Educational Society, Anakapalle. Affiliated with Andhra University.
-              </p>
-              <p style={{ opacity: '0.85', fontSize: 'clamp(12px, 1.5vw, 13px)', marginTop: '10px' }}>
-                Offering both Intermediate &amp; Degree programs.
-              </p>
-            </div>
-
-            {/* Quick Links */}
-            <div className="links-card" style={{
-              flex: '1',
-              backgroundColor: 'var(--gold)',
-              padding: 'clamp(20px, 4vw, 40px)',
-              color: 'var(--deep-blue)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              transition: 'var(--transition-smooth)',
-              cursor: 'pointer'
-            }}>
-              <h3 style={{ fontSize: 'clamp(18px, 2vw, 22px)', fontWeight: 'bold', marginBottom: '15px' }}>QUICK LINKS</h3>
-              <ul style={{ listStyle: 'none', padding: '0', fontSize: 'clamp(12px, 1.5vw, 14px)', lineHeight: '1.8' }}>
-                <li style={{ cursor: 'pointer', fontWeight: '500' }} onClick={() => scrollToSection('courses')}>Our Courses</li>
-                <li style={{ cursor: 'pointer', fontWeight: '500' }} onClick={() => scrollToSection('achievements')}>Achievements</li>
-                <li style={{ cursor: 'pointer', fontWeight: '500' }} onClick={() => scrollToSection('facilities')}>Facilities</li>
-                <li style={{ cursor: 'pointer', fontWeight: '500' }} onClick={() => scrollToSection('contact')}>Contact Us</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+      {/* QUICK LINKS - Bottom Right */}
+      <div className="quick-links-floating">
+        <h3 style={{ fontSize: 'clamp(18px, 2vw, 22px)', fontWeight: 'bold', marginBottom: '15px' }}>QUICK LINKS</h3>
+        <ul style={{ listStyle: 'none', padding: '0', fontSize: 'clamp(12px, 1.5vw, 14px)', lineHeight: '1.8' }}>
+          <li style={{ cursor: 'pointer', fontWeight: '500' }} onClick={() => scrollToSection('courses')}>Our Courses</li>
+          <li style={{ cursor: 'pointer', fontWeight: '500' }} onClick={() => scrollToSection('achievements')}>Achievements</li>
+          <li style={{ cursor: 'pointer', fontWeight: '500' }} onClick={() => scrollToSection('facilities')}>Facilities</li>
+          <li style={{ cursor: 'pointer', fontWeight: '500' }} onClick={() => scrollToSection('contact')}>Contact Us</li>
+        </ul>
       </div>
 
       <style dangerouslySetInnerHTML={{
         __html: `
-        .notice-card:hover, .links-card:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        .quick-links-floating {
+          position: absolute;
+          bottom: 0;
+          right: 0;
           z-index: 10;
+          background-color: var(--gold);
+          padding: clamp(20px, 4vw, 40px);
+          color: var(--deep-blue);
+          width: clamp(280px, 25vw, 350px);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
         }
         .custom-hero-bg {
-          background-image: url('/images/Sai%20Kulwanth%20Landscape.png');
+          background-image: url('/images/baba.jpeg');
+          background-position: center left 20%;
         }
         @media (max-width: 768px) {
           .custom-hero-bg {
-            background-image: url('/images/Sai%20Kulwanth%20Mobile%20View.png');
+            background-image: url('/images/baba.jpeg');
             background-size: cover !important;
-            background-position: center top !important;
+            background-position: center !important;
           }
-          .hero-left {
-            padding-bottom: 200px !important;
+          .hero-content {
+            padding-bottom: 80px !important;
+          }
+          .quick-links-floating {
+            position: relative !important;
+            width: 100% !important;
+            padding: 30px 5% !important;
           }
         }
         @media (max-width: 1024px) {
-          .hero-left { 
+          .hero-content { 
             padding: 120px 5% 40px 5% !important;
             text-align: center !important;
+            align-items: center !important;
             flex: 1 0 100% !important;
+            margin-left: 0 !important;
           }
-          .hero-left .accent-line { margin: 20px auto !important; }
-          .hero-right { 
-            flex: 1 0 100% !important;
-            justify-content: flex-start !important;
-          }
-          .hero-cards-container {
-            height: auto !important;
-            flex-direction: column !important;
-            transform: translateY(0) !important;
-            gap: 0px;
-          }
-          .notice-card, .links-card {
-            padding: 40px 5% !important;
-          }
+          .hero-content .accent-line { margin: 20px auto !important; }
+          .hero-content p { text-align: center !important; }
+          .hero-content div { text-align: center !important; }
         }
       `}} />
     </section>

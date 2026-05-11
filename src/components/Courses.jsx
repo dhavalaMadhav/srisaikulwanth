@@ -12,12 +12,12 @@ const Courses = () => {
   ];
 
   const degree = [
-    'B.Sc (Data Science)',
     'B.Sc (Computer Science)',
+    'B.Sc (Artificial Intelligence)',
+    'B.Sc (Data Science)',
     'B.Sc (Mathematics)',
     'B.Sc (Physics)',
     'B.Sc (Chemistry)',
-    'B.Sc (Statistics)',
     'B.Com (Computer Applications)',
     'BBA (Business Analytics)',
   ];

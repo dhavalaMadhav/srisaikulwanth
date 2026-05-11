@@ -1,87 +1,16 @@
 import React from 'react';
-import { Star } from 'lucide-react';
-
-const mockToppers = [
-  {
-    id: 1,
-    name: "Aarav Sharma",
-    rollNo: "INT2025MPC014",
-    stream: "MPC",
-    year: "2025",
-    category: "Intermediate",
-    score: "992/1000",
-    rank: 1,
-    image: "https://i.pravatar.cc/300?img=11",
-    featured: true,
-    quote: "Consistent effort and dedicated faculty support helped me achieve this milestone."
-  },
-  {
-    id: 2,
-    name: "Priya Patel",
-    rollNo: "INT2024BPC042",
-    stream: "BPC",
-    year: "2024",
-    category: "Intermediate",
-    score: "988/1000",
-    rank: 2,
-    image: "https://i.pravatar.cc/300?img=5"
-  },
-  {
-    id: 3,
-    name: "Rohan Kumar",
-    rollNo: "INT2025MPC102",
-    stream: "MPC",
-    year: "2025",
-    category: "Intermediate",
-    score: "986/1000",
-    rank: 1,
-    image: "https://i.pravatar.cc/300?img=12"
-  },
-  {
-    id: 4,
-    name: "Ananya Reddy",
-    rollNo: "INT2024BPC055",
-    stream: "BPC",
-    year: "2024",
-    category: "Intermediate",
-    score: "978/1000",
-    rank: 3,
-    image: "https://i.pravatar.cc/300?img=9"
-  },
-  {
-    id: 5,
-    name: "Vikram Singh",
-    rollNo: "INT2023CEC088",
-    stream: "CEC",
-    year: "2023",
-    category: "Intermediate",
-    score: "975/1000",
-    rank: 3,
-    image: "https://i.pravatar.cc/300?img=14"
-  },
-  {
-    id: 6,
-    name: "Neha Gupta",
-    rollNo: "INT2023CEC021",
-    stream: "CEC",
-    year: "2023",
-    category: "Intermediate",
-    score: "965/1000",
-    rank: 2,
-    image: "https://i.pravatar.cc/300?img=20"
-  }
-];
+import { ChevronRight } from 'lucide-react';
 
 const Toppers = () => {
-  const filteredToppers = mockToppers.filter(topper => !topper.featured);
-  const featuredTopper = mockToppers.find(topper => topper.featured);
-
   return (
     <section id="toppers" style={{
       backgroundColor: '#f8f9fa',
-      padding: 'clamp(60px, 8vw, 100px) 10%',
+      padding: 'clamp(60px, 8vw, 100px) 5%',
       position: 'relative',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center'
     }}>
       {/* Subtle Pattern Background */}
       <div style={{
@@ -105,257 +34,251 @@ const Toppers = () => {
         <div style={{ width: '80px', height: '3px', background: 'var(--gold)', margin: '15px auto 30px' }}></div>
       </div>
 
-      {/* Featured Topper Card */}
-      {featuredTopper && (
-        <div className="featured-topper-card fade-in">
-          <div className="featured-image-wrapper">
-            <img src={featuredTopper.image} alt={featuredTopper.name} />
-            <div className="rank-badge">
-              <Star size={16} fill="currentColor" /> Rank #{featuredTopper.rank}
+      {/* Toppers Image */}
+      <div style={{ position: 'relative', zIndex: 1, width: '100%', display: 'flex', justifyContent: 'center', marginBottom: '50px' }}>
+        <img 
+          src="/images/toppers-kulwanth.jpeg" 
+          alt="Academic Toppers" 
+          style={{
+            width: '90%',
+            maxWidth: '1200px',
+            borderRadius: '12px',
+            boxShadow: '0 15px 40px rgba(0,0,0,0.15)'
+          }} 
+        />
+      </div>
+
+      {/* Achievements Grid */}
+      <div className="toppers-achievements-container" style={{ position: 'relative', zIndex: 1, width: '90%', maxWidth: '1200px' }}>
+        
+        <div className="toppers-achievements-grid">
+          {/* Column 1 */}
+          <div className="toppers-achievement-col">
+            <div className="toppers-image-wrapper">
+              <img src="/Academics/Recoverd_jpg_file3471.jpg" alt="Award Ceremony" />
+            </div>
+            
+            <div className="toppers-achievement-item">
+              <ChevronRight size={22} className="toppers-pointer-icon" />
+              <div className="toppers-item-content">
+                <h4>PRATHIBHA AWARDS</h4>
+                <p>Junior - 10, Degree - 4</p>
+              </div>
+            </div>
+            <div className="toppers-achievement-item">
+              <ChevronRight size={22} className="toppers-pointer-icon" />
+              <div className="toppers-item-content">
+                <h4>INSPIRE AWARDS</h4>
+                <p>Junior - 4 (Rs. 4,00,000 Each)</p>
+              </div>
+            </div>
+            <div className="toppers-achievement-item">
+              <ChevronRight size={22} className="toppers-pointer-icon" />
+              <div className="toppers-item-content">
+                <h4>NATIONAL MERIT SCHOLARSHIPS</h4>
+                <p>Junior - 64 (Rs. 70,000 Each)</p>
+              </div>
             </div>
           </div>
-          <div className="featured-content">
-            <div className="featured-header">
-              <span className="featured-tag">Highest Achiever {featuredTopper.year}</span>
+
+          {/* Column 2 */}
+          <div className="toppers-achievement-col toppers-center-col">
+            <div className="toppers-academic-banner">
+              <h3>ACADEMIC ACHIEVEMENTS</h3>
             </div>
-            <h3 className="featured-name">{featuredTopper.name}</h3>
-            <p className="featured-course">{featuredTopper.stream} ({featuredTopper.category})</p>
-            <div className="featured-details">
-              <span><strong>Roll No:</strong> {featuredTopper.rollNo}</span>
-              <span className="featured-score">{featuredTopper.score}</span>
+            
+            <div className="toppers-achievement-item toppers-highlight">
+              <ChevronRight size={24} className="toppers-pointer-icon" />
+              <div className="toppers-item-content">
+                <h4>A.U. GOLD MEDALS</h4>
+                <p>Degree - 3</p>
+              </div>
             </div>
-            {featuredTopper.quote && (
-              <p className="featured-quote">"{featuredTopper.quote}"</p>
-            )}
+            <div className="toppers-achievement-item toppers-highlight">
+              <ChevronRight size={24} className="toppers-pointer-icon" />
+              <div className="toppers-item-content">
+                <h4>UNIVERSITY 1st Rank</h4>
+                <p>In Degree - 6 times</p>
+              </div>
+            </div>
+            <div className="toppers-achievement-item toppers-highlight">
+              <ChevronRight size={24} className="toppers-pointer-icon" />
+              <div className="toppers-item-content">
+                <h4>CA COMPLETED</h4>
+                <p>Students - 18+</p>
+              </div>
+            </div>
+
+            <div className="toppers-image-wrapper" style={{ marginTop: '20px' }}>
+              <img src="/Academics/chandrababu.jpeg" alt="Ceremony" style={{ transform: 'rotate(-90deg) scale(1.6)' }} />
+            </div>
+          </div>
+
+          {/* Column 3 */}
+          <div className="toppers-achievement-col">
+            <div className="toppers-achievement-item">
+              <ChevronRight size={22} className="toppers-pointer-icon" />
+              <div className="toppers-item-content">
+                <h4>2023 TOWN 1st in MPC, MEC & CEC</h4>
+              </div>
+            </div>
+            <div className="toppers-achievement-item">
+              <ChevronRight size={22} className="toppers-pointer-icon" />
+              <div className="toppers-item-content">
+                <h4>2023 TOWN 2nd in BiPC</h4>
+              </div>
+            </div>
+            <div className="toppers-achievement-item">
+              <ChevronRight size={22} className="toppers-pointer-icon" />
+              <div className="toppers-item-content">
+                <h4>ENGINEERING (AU)</h4>
+                <p>CSE Seats - 2</p>
+              </div>
+            </div>
+            <div className="toppers-achievement-item">
+              <ChevronRight size={22} className="toppers-pointer-icon" />
+              <div className="toppers-item-content">
+                <h4>Settled in Software jobs</h4>
+                <p>Uncountable</p>
+              </div>
+            </div>
+            <div className="toppers-achievement-item">
+              <ChevronRight size={22} className="toppers-pointer-icon" />
+              <div className="toppers-item-content">
+                <h4>Settled in Navy - Army - Airforce</h4>
+                <p>9 Candidates</p>
+              </div>
+            </div>
+            <div className="toppers-achievement-item">
+              <ChevronRight size={22} className="toppers-pointer-icon" />
+              <div className="toppers-item-content">
+                <h4>Settled in Govt. Jobs</h4>
+                <p>Uncountable</p>
+              </div>
+            </div>
           </div>
         </div>
-      )}
-
-      {/* Grid */}
-      <div className="toppers-grid">
-        {filteredToppers.map((topper) => (
-          <div key={topper.id} className={`topper-card rank-${topper.rank} fade-in`}>
-            <div className="topper-image-container">
-              <img src={topper.image} alt={topper.name} className="topper-image" />
-            </div>
-            <div className="topper-info">
-              <h4 className="topper-name">{topper.name}</h4>
-              <p className="topper-stream">{topper.stream}</p>
-              <div className="topper-meta">
-                <span className="meta-roll">{topper.rollNo}</span>
-                <span className="meta-year">{topper.year}</span>
-              </div>
-              <div className="topper-score-row">
-                <span className="topper-category">{topper.category}</span>
-                <span className="topper-score">{topper.score}</span>
-              </div>
-            </div>
-          </div>
-        ))}
       </div>
 
       <style dangerouslySetInnerHTML={{ __html: `
-        .featured-topper-card {
-          display: flex;
-          background: white;
-          border-radius: 16px;
-          overflow: hidden;
-          box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-          max-width: 900px;
-          margin: 0 auto 50px;
-          position: relative;
-          z-index: 1;
-          border-left: 5px solid var(--gold);
-        }
-        .featured-image-wrapper {
-          flex: 0 0 35%;
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 30px;
-        }
-        .featured-image-wrapper img {
-          width: 200px;
-          height: 200px;
-          border-radius: 50%;
-          object-fit: cover;
-          border: 4px solid var(--gold);
-          transition: transform 0.5s ease;
-        }
-        .featured-topper-card:hover .featured-image-wrapper img {
-          transform: scale(1.05);
-        }
-        .rank-badge {
-          position: absolute;
-          top: 20px;
-          left: 20px;
-          background: var(--gold);
-          color: #fff;
-          padding: 6px 12px;
-          border-radius: 30px;
-          font-size: 14px;
-          font-weight: 600;
-          display: flex;
-          align-items: center;
-          gap: 5px;
-          box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-          z-index: 2;
-        }
-        .featured-content {
+        .toppers-achievements-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 30px;
+          background: var(--deep-blue, #0d1b2a);
           padding: 40px;
-          flex: 1;
+          border-radius: 12px;
+          color: white;
+          box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .toppers-achievement-col {
           display: flex;
           flex-direction: column;
+          gap: 20px;
+        }
+
+        .toppers-center-col {
+          border-left: 1px solid rgba(255,255,255,0.1);
+          border-right: 1px solid rgba(255,255,255,0.1);
+          padding: 0 20px;
+        }
+
+        .toppers-image-wrapper {
+          width: 100%;
+          height: 180px;
+          background-color: transparent;
+          border-radius: 8px;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
           justify-content: center;
         }
-        .featured-tag {
-          color: var(--gold);
-          font-weight: 600;
-          font-size: 13px;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-        }
-        .featured-name {
-          font-size: clamp(24px, 3vw, 32px);
-          color: var(--primary-blue);
-          font-family: var(--header-font);
-          margin: 10px 0;
-        }
-        .featured-course {
-          font-size: 16px;
-          color: #555;
-          margin-bottom: 20px;
-        }
-        .featured-details {
-          display: flex;
-          gap: 30px;
-          margin-bottom: 20px;
-          font-size: 15px;
-          align-items: center;
-        }
-        .featured-score {
-          font-size: 20px;
-          font-weight: 700;
-          color: var(--primary-blue);
-          background: rgba(var(--gold-rgb), 0.1);
-          padding: 5px 15px;
-          border-radius: 8px;
-        }
-        .featured-quote {
-          font-style: italic;
-          color: #666;
-          border-left: 3px solid var(--gold);
-          padding-left: 15px;
-          margin-top: 10px;
-        }
 
-        .toppers-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-          gap: 30px;
-          max-width: 1200px;
-          margin: 0 auto;
-          position: relative;
-          z-index: 1;
-        }
-        .topper-card {
-          background: white;
-          border-radius: 12px;
-          overflow: hidden;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          border-bottom: 4px solid transparent;
-          text-align: center;
-        }
-        .topper-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        }
-        .topper-card.rank-1 { border-bottom-color: var(--gold); }
-        .topper-card.rank-2 { border-bottom-color: #C0C0C0; } /* Silver */
-        .topper-card.rank-3 { border-bottom-color: #CD7F32; } /* Bronze */
-        
-        .topper-image-container {
-          height: 120px;
-          width: 120px;
-          margin: 30px auto 10px;
-          border-radius: 50%;
-          overflow: hidden;
-          position: relative;
-          border: 3px solid rgba(0,0,0,0.05);
-        }
-        .topper-card.rank-1 .topper-image-container { border-color: var(--gold); }
-        .topper-card.rank-2 .topper-image-container { border-color: #C0C0C0; }
-        .topper-card.rank-3 .topper-image-container { border-color: #CD7F32; }
-        
-        .topper-image {
+        .toppers-image-wrapper img {
           width: 100%;
           height: 100%;
-          object-fit: cover;
-          transition: transform 0.5s ease;
-        }
-        .topper-card:hover .topper-image {
-          transform: scale(1.1);
-        }
-        
-        .topper-info {
-          padding: 20px;
-        }
-        .topper-name {
-          font-size: 18px;
-          color: var(--primary-blue);
-          font-family: var(--header-font);
-          margin-bottom: 5px;
-          font-weight: 600;
-        }
-        .topper-stream {
-          font-size: 14px;
-          color: #666;
-          margin-bottom: 15px;
-        }
-        .topper-meta {
-          display: flex;
-          justify-content: space-between;
-          font-size: 12px;
-          color: #888;
-          margin-bottom: 15px;
-          padding-bottom: 15px;
-          border-bottom: 1px solid #eee;
-        }
-        .topper-score-row {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-        .topper-category {
-          font-size: 12px;
-          background: #f0f4f8;
-          padding: 4px 10px;
-          border-radius: 12px;
-          color: var(--primary-blue);
-          font-weight: 600;
-        }
-        .topper-score {
-          font-size: 16px;
-          font-weight: 700;
-          color: var(--primary-blue);
+          object-fit: contain;
+          display: block;
         }
 
-        @media (max-width: 768px) {
-          .featured-topper-card {
-            flex-direction: column;
+        .toppers-academic-banner {
+          background-color: #d13030;
+          padding: 12px 20px;
+          border-radius: 6px;
+          text-align: center;
+          margin-bottom: 10px;
+          position: relative;
+        }
+
+        .toppers-academic-banner h3 {
+          margin: 0;
+          color: white;
+          font-size: 18px;
+          letter-spacing: 1px;
+        }
+
+        .toppers-achievement-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          padding: 10px 5px;
+          background: transparent;
+          transition: transform 0.3s ease;
+        }
+
+        .toppers-achievement-item:hover {
+          transform: translateX(5px);
+        }
+
+        .toppers-pointer-icon {
+          color: var(--gold, #d4af37);
+          flex-shrink: 0;
+          margin-top: 2px;
+        }
+
+        .toppers-item-content {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .toppers-achievement-item h4 {
+          color: #ff6b6b;
+          font-size: 16px;
+          margin: 0;
+          letter-spacing: 0.5px;
+          line-height: 1.4;
+        }
+
+        .toppers-achievement-item p {
+          color: #eee;
+          margin: 0;
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        .toppers-achievement-item.toppers-highlight h4 {
+          color: #fca311;
+          font-size: 18px;
+        }
+
+        .toppers-achievement-item.toppers-highlight p {
+          font-size: 16px;
+        }
+
+        @media (max-width: 992px) {
+          .toppers-achievements-grid {
+            grid-template-columns: 1fr;
+            padding: 20px;
+            gap: 40px;
           }
-          .featured-image-wrapper {
-            height: auto;
-            padding: 30px 30px 0;
-          }
-          .featured-image-wrapper img {
-            width: 180px;
-            height: 180px;
-          }
-          .featured-content {
-            padding: 25px;
+          .toppers-center-col {
+            border: none;
+            padding: 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 30px 0;
           }
         }
       `}} />

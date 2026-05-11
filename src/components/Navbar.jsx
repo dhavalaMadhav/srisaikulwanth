@@ -66,11 +66,9 @@ const Navbar = () => {
           zIndex: '2001',
           transition: 'color 0.4s ease'
         }}>
-          {scrolled && (
-            <img src="/images/saikulwanth-logo.png" alt="Sai Kulwanth Logo" style={{ height: '50px', width: 'auto' }} />
-          )}
+          <img src="/images/saikulwanth-logo.png" alt="Sai Kulwanth Logo" style={{ height: '50px', width: 'auto' }} />
           <div>
-            SAI KULWANTH <span style={{ color: 'var(--gold)' }}>.</span>
+            SAI KULWANTH
           </div>
         </div>
         
@@ -155,7 +153,7 @@ const Navbar = () => {
           }}>
             <img src="/images/saikulwanth-logo.png" alt="Sai Kulwanth Logo" style={{ height: '40px', width: 'auto' }} />
             <div>
-              SAI KULWANTH <span style={{ color: 'var(--gold)' }}>.</span>
+              SAI KULWANTH
             </div>
           </div>
         </div>

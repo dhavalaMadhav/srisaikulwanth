@@ -104,8 +104,8 @@ const FeatureGalleryModal = ({ isOpen, onClose, category }) => {
   // Map category title to the public subfolder name
   const folderMap = {
     'Academics': 'Academics',
-    'Arts & Culture': 'Arts & Culture',
-    'Campus Life': 'Campus Life',
+    'Arts & Culture': 'Arts & culture',
+    'Campus Life': 'Campus life',
     'Spiritual Heritage': 'Spiritual Heritage',
     'Sports': 'Sports',
   };

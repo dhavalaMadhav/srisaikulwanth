@@ -77,16 +77,16 @@ const SilverJubileeBadge = () => {
       <style dangerouslySetInnerHTML={{ __html: `
         .silver-jubilee-badge {
           top: 100px;
-          right: 25px;
+          left: 5%;
         }
         @media (max-width: 768px) {
           .silver-jubilee-badge {
             top: 75px !important;
-            right: -5px !important;
-            border-top-right-radius: 0 !important;
-            border-bottom-right-radius: 0 !important;
+            left: -5px !important;
+            border-top-left-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
             transform: scale(0.75);
-            transform-origin: top right;
+            transform-origin: top left;
           }
         }
       `}} />
