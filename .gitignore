@@ -4,4 +4,4 @@ node_modules/
 dist/
 build/
 *.mov
-*.mp4
+*.mp4  

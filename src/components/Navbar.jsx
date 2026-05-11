@@ -48,26 +48,36 @@ const Navbar = () => {
         justifyContent: 'space-between',
         alignItems: 'center',
         zIndex: '2000',
-        backgroundColor: scrolled ? 'var(--deep-blue)' : 'transparent',
+        backgroundColor: scrolled ? '#f0f4f8' : 'transparent',
         backdropFilter: scrolled ? 'blur(10px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(244, 196, 48, 0.2)' : 'none',
-        transition: 'all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1)'
+        borderBottom: scrolled ? '1px solid rgba(0, 0, 0, 0.05)' : 'none',
+        transition: 'all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1)',
+        boxShadow: scrolled ? '0 4px 20px rgba(0,0,0,0.05)' : 'none'
       }}>
         <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '15px',
           fontFamily: 'var(--header-font)',
           fontSize: 'clamp(20px, 4vw, 24px)',
           fontWeight: '700',
-          color: 'white',
+          color: scrolled ? 'var(--deep-blue)' : 'white',
           letterSpacing: '1px',
-          zIndex: '2001'
+          zIndex: '2001',
+          transition: 'color 0.4s ease'
         }}>
-          SAI KULWANTH <span style={{ color: 'var(--gold)' }}>.</span>
+          {scrolled && (
+            <img src="/images/saikulwanth-logo.png" alt="Sai Kulwanth Logo" style={{ height: '50px', width: 'auto' }} />
+          )}
+          <div>
+            SAI KULWANTH <span style={{ color: 'var(--gold)' }}>.</span>
+          </div>
         </div>
         
         {/* Desktop Navigation */}
         <div className="desktop-nav" style={{ display: 'flex', gap: '25px', alignItems: 'center' }}>
           {navLinks.map((link, i) => (
-            <NavLink key={i} text={link.text} href={link.href} onClick={handleNavClick} />
+            <NavLink key={i} text={link.text} href={link.href} onClick={handleNavClick} scrolled={scrolled} />
           ))}
           <button style={{
             padding: '10px 24px',
@@ -84,9 +94,10 @@ const Navbar = () => {
         {/* Mobile Hamburger Icon */}
         <div className="mobile-hamburger" onClick={() => setIsMenuOpen(!isMenuOpen)} style={{
           display: 'none',
-          color: 'white',
+          color: scrolled ? 'var(--deep-blue)' : 'white',
           cursor: 'pointer',
-          zIndex: '2001'
+          zIndex: '2001',
+          transition: 'color 0.4s ease'
         }}>
           {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
         </div>
@@ -133,13 +144,19 @@ const Navbar = () => {
             marginTop: 'auto',
             paddingTop: '20px',
             borderTop: '1px solid rgba(255,255,255,0.15)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '15px',
             fontFamily: 'var(--header-font)',
             fontSize: '18px',
             fontWeight: '700',
             color: 'white',
             letterSpacing: '1px'
           }}>
-            SAI KULWANTH <span style={{ color: 'var(--gold)' }}>.</span>
+            <img src="/images/saikulwanth-logo.png" alt="Sai Kulwanth Logo" style={{ height: '40px', width: 'auto' }} />
+            <div>
+              SAI KULWANTH <span style={{ color: 'var(--gold)' }}>.</span>
+            </div>
           </div>
         </div>
 
@@ -174,9 +191,9 @@ const Navbar = () => {
   );
 };
 
-const NavLink = ({ text, href, onClick }) => (
+const NavLink = ({ text, href, onClick, scrolled }) => (
   <a href={href} className="nav-link-item" style={{
-    color: 'white',
+    color: scrolled ? 'var(--deep-blue)' : 'white',
     textDecoration: 'none',
     fontSize: '13px',
     fontWeight: '500',
@@ -186,7 +203,7 @@ const NavLink = ({ text, href, onClick }) => (
   }}
     onClick={(e) => onClick(e, href)}
     onMouseOver={e => e.target.style.color = 'var(--gold)'}
-    onMouseOut={e => e.target.style.color = 'white'}
+    onMouseOut={e => e.target.style.color = scrolled ? 'var(--deep-blue)' : 'white'}
   >
     {text}
   </a>
