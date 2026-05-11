@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const intermediateCourses = [
   'MPC + EAPCET',
@@ -28,6 +29,7 @@ const ApplyModal = ({ isOpen, onClose }) => {
   });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const programs = form.courseType === 'Intermediate' ? intermediateCourses : degreeCourses;
 
@@ -69,7 +71,37 @@ const ApplyModal = ({ isOpen, onClose }) => {
       return;
     }
     setErrors({});
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    const templateParams = {
+      from_name: form.name,
+      to_name: 'Sri Sai Kulwanth',
+      to_email: 'saikulwanth09@gmail.com',
+      name: form.name,
+      phone: form.phone,
+      email: form.email,
+      courseType: form.courseType,
+      program: form.program,
+      message: form.message || 'No message provided.',
+      reply_to: form.email,
+    };
+
+    emailjs.send(
+      'service_36q8jbw',
+      'template_sk2astg',
+      templateParams,
+      {
+        publicKey: 'Ktaxo1w0v5E3CZsEp',
+      }
+    ).then((response) => {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }).catch((err) => {
+      setIsSubmitting(false);
+      console.error('Failed to send email:', err);
+      const errorMsg = err?.text || err?.message || JSON.stringify(err);
+      alert(`Failed to send application. Error: ${errorMsg}`);
+    });
   };
 
   const handleChange = (field, value) => {
@@ -83,6 +115,7 @@ const ApplyModal = ({ isOpen, onClose }) => {
       setForm({ name: '', phone: '', email: '', courseType: '', program: '', message: '' });
       setErrors({});
       setSubmitted(false);
+      setIsSubmitting(false);
     }, 300);
   };
 
@@ -192,7 +225,9 @@ const ApplyModal = ({ isOpen, onClose }) => {
                 />
               </div>
 
-              <button type="submit" className="modal-submit-btn">Submit Application</button>
+              <button type="submit" className="modal-submit-btn" disabled={isSubmitting}>
+                {isSubmitting ? 'Submitting...' : 'Submit Application'}
+              </button>
             </form>
           </>
         )}
@@ -310,7 +345,8 @@ const ApplyModal = ({ isOpen, onClose }) => {
           transition: background 0.3s ease, transform 0.2s ease;
           margin-top: 8px;
         }
-        .modal-submit-btn:hover { background: var(--deep-blue); transform: translateY(-2px); }
+        .modal-submit-btn:hover:not(:disabled) { background: var(--deep-blue); transform: translateY(-2px); }
+        .modal-submit-btn:disabled { opacity: 0.7; cursor: not-allowed; }
         .modal-success {
           text-align: center;
           padding: 20px 0;

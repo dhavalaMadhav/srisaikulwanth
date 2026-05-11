@@ -94,7 +94,7 @@ const EventSocialInfo = () => {
         justifyContent: 'center'
       }}>
         <p style={{ fontSize: '16px', lineHeight: '1.8', marginBottom: '20px' }}>
-          Sai Kulwanth Educational Society (established at Anakapalle, 2005) follows the model of value-based Integral Education, offering both Intermediate and Degree programs.
+          Sai Kulwanth Educational Institutions (established at Anakapalle, 2001) follows the model of value-based Integral Education, offering both Intermediate and Degree programs.
         </p>
         <a href="#courses" onClick={e => { e.preventDefault(); scrollToSection('courses'); }} style={{ 
           color: 'var(--gold)', 

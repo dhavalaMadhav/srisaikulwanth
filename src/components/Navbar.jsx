@@ -59,14 +59,14 @@ const Navbar = () => {
           alignItems: 'center',
           gap: '15px',
           fontFamily: 'var(--header-font)',
-          fontSize: 'clamp(20px, 4vw, 24px)',
+          fontSize: 'clamp(24px, 5vw, 32px)',
           fontWeight: '700',
           color: scrolled ? 'var(--deep-blue)' : 'white',
           letterSpacing: '1px',
           zIndex: '2001',
           transition: 'color 0.4s ease'
         }}>
-          <img src="/images/saikulwanth-logo.png" alt="Sai Kulwanth Logo" style={{ height: '50px', width: 'auto' }} />
+          <img src="/images/saikulwanth-logo.png" alt="Sai Kulwanth Logo" style={{ height: '70px', width: 'auto' }} />
           <div>
             SAI KULWANTH
           </div>

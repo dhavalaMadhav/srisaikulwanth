@@ -36,27 +36,10 @@ const Footer = () => {
             <h2 style={{ fontSize: '22px', color: 'var(--gold)', margin: 0 }}>SAI KULWANTH</h2>
           </div>
           <p style={{ opacity: '0.8', lineHeight: '1.8', fontSize: '14px' }}>
-            Sai Kulwanth Educational Society (established at Anakapalle, 2005) provides free education based on the philosophy of Integral Education — offering both Intermediate and Degree programs.
+            Sai Kulwanth Educational Institutions (established at Anakapalle, 2001) provides free education based on the philosophy of Integral Education — offering both Intermediate and Degree programs.
           </p>
         </div>
         
-        {/* Quick Links */}
-        <div>
-          <h4 style={{ marginBottom: '20px', letterSpacing: '1px' }}>Quick Links</h4>
-          <ul style={{ listStyle: 'none', padding: '0', opacity: '0.8', fontSize: '14px', lineHeight: '2.5' }}>
-            {quickLinks.map((link, idx) => (
-              <li
-                key={idx}
-                style={{ cursor: 'pointer', transition: 'color 0.2s' }}
-                onClick={() => scrollToSection(link.id)}
-                onMouseOver={e => e.target.style.color = 'var(--gold)'}
-                onMouseOut={e => e.target.style.color = 'var(--deep-blue)'}
-              >
-                {link.label}
-              </li>
-            ))}
-          </ul>
-        </div>
 
         {/* Info */}
         <div>
@@ -71,7 +54,9 @@ const Footer = () => {
           <h4 style={{ marginBottom: '20px', letterSpacing: '1px' }}>Contact</h4>
           <p style={{ opacity: '0.8', fontSize: '14px', marginBottom: '10px' }}>Vidyagiri, Anakapalle</p>
           <p style={{ opacity: '0.8', fontSize: '14px', marginBottom: '10px' }}>Andhra Pradesh - 531001</p>
-          <a href="mailto:registrar@saikulwanth.edu.in" style={{ color: 'var(--gold)', fontSize: '14px', textDecoration: 'none' }}>registrar@saikulwanth.edu.in</a>
+          <div style={{ opacity: '0.8', fontSize: '14px', marginBottom: '5px' }}>9849216362, 9959378790</div>
+          <div style={{ opacity: '0.8', fontSize: '14px', marginBottom: '15px' }}>7386487509, 7396013501</div>
+          <a href="mailto:saikulwanth09@gmail.com" style={{ color: 'var(--gold)', fontSize: '14px', textDecoration: 'none' }}>saikulwanth09@gmail.com</a>
         </div>
       </div>
 
@@ -86,16 +71,16 @@ const Footer = () => {
         <div>
           <h4 style={{ marginBottom: '16px', letterSpacing: '1px', color: 'var(--gold)' }}>Find Us on the Map</h4>
           <p style={{ opacity: '0.8', fontSize: '14px', lineHeight: '1.8' }}>
-            Sai Kulwanth Educational Society is situated in the serene town of Anakapalle, Visakhapatnam District, Andhra Pradesh. Our campus provides a peaceful environment conducive to academic excellence.
+            Sai Kulwanth Educational Institutions is situated in the serene town of Anakapalle, Visakhapatnam District, Andhra Pradesh. Our campus provides a peaceful environment conducive to academic excellence.
           </p>
         </div>
         <div style={{ borderRadius: '4px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.1)', display: 'flex', flexDirection: 'column' }}>
           <div style={{ background: 'rgba(0,0,0,0.03)', padding: '15px 20px', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
-            <h5 style={{ margin: 0, color: 'var(--gold)', fontSize: '16px', letterSpacing: '1px' }}>Sai Kulwanth Edu Society</h5>
+            <h5 style={{ margin: 0, color: 'var(--gold)', fontSize: '16px', letterSpacing: '1px' }}>Sai Kulwanth Edu Institutions</h5>
           </div>
           <iframe
-            title="Sai Kulwanth Educational Society Location"
-            src="https://maps.google.com/maps?q=17.6881014,83.005051+(Sai%20Kulwanth%20Edu%20Society)&hl=en&z=20&output=embed"
+            title="Sai Kulwanth Educational Institutions Location"
+            src="https://maps.google.com/maps?q=17.6881014,83.005051+(Sai%20Kulwanth%20Edu%20Institutions)&hl=en&z=20&output=embed"
             width="100%"
             height="220"
             style={{ border: 'none', display: 'block' }}
@@ -113,7 +98,7 @@ const Footer = () => {
         fontSize: '13px',
         opacity: '0.6'
       }}>
-        © 2026 Sai Kulwanth Educational Society. All Rights Reserved. | Affiliated with AU, Visakhapatnam.
+        © 2026 Sai Kulwanth Educational Institutions. All Rights Reserved. | Affiliated with AU, Visakhapatnam.
       </div>
 
       <style dangerouslySetInnerHTML={{ __html: `

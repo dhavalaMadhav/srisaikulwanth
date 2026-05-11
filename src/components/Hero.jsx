@@ -82,7 +82,7 @@ const Hero = () => {
             textTransform: 'uppercase',
             letterSpacing: '1px'
           }}>
-            Affiliated with Andhra University, Visakhapatnam | Established 2005
+            Affiliated with Andhra University, Visakhapatnam | Established 2001
           </div>
 
           <div style={{
@@ -99,39 +99,16 @@ const Hero = () => {
               "True Education is that which fosters the full development of a human being's inherent divinity."
             </p>
             <div style={{ textAlign: 'center' }}>
-              <strong style={{ display: 'block', fontSize: '18px' }}>SAI KULWANTH</strong>
-              <small style={{ opacity: '0.8' }}>Founder &amp; Inspiration</small>
+              <strong style={{ display: 'block', fontSize: '18px' }}>Mumidisetty kamaraju</strong>
+              <small style={{ opacity: '0.8' }}>Founder</small>
             </div>
           </div>
         </div>
       </div>
 
-      {/* QUICK LINKS - Bottom Right */}
-      <div className="quick-links-floating">
-        <h3 style={{ fontSize: 'clamp(18px, 2vw, 22px)', fontWeight: 'bold', marginBottom: '15px' }}>QUICK LINKS</h3>
-        <ul style={{ listStyle: 'none', padding: '0', fontSize: 'clamp(12px, 1.5vw, 14px)', lineHeight: '1.8' }}>
-          <li style={{ cursor: 'pointer', fontWeight: '500' }} onClick={() => scrollToSection('courses')}>Our Courses</li>
-          <li style={{ cursor: 'pointer', fontWeight: '500' }} onClick={() => scrollToSection('achievements')}>Achievements</li>
-          <li style={{ cursor: 'pointer', fontWeight: '500' }} onClick={() => scrollToSection('facilities')}>Facilities</li>
-          <li style={{ cursor: 'pointer', fontWeight: '500' }} onClick={() => scrollToSection('contact')}>Contact Us</li>
-        </ul>
-      </div>
 
       <style dangerouslySetInnerHTML={{
         __html: `
-        .quick-links-floating {
-          position: absolute;
-          bottom: 0;
-          right: 0;
-          z-index: 10;
-          background-color: var(--gold);
-          padding: clamp(20px, 4vw, 40px);
-          color: var(--deep-blue);
-          width: clamp(280px, 25vw, 350px);
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-        }
         .custom-hero-bg {
           background-image: url('/images/baba.jpeg');
           background-position: center left 20%;
@@ -144,11 +121,6 @@ const Hero = () => {
           }
           .hero-content {
             padding-bottom: 80px !important;
-          }
-          .quick-links-floating {
-            position: relative !important;
-            width: 100% !important;
-            padding: 30px 5% !important;
           }
         }
         @media (max-width: 1024px) {
