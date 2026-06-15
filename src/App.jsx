@@ -8,6 +8,7 @@ import AboutFacilitiesWhy from './components/AboutFacilitiesWhy';
 import FeatureCards from './components/FeatureCards';
 import Achievements from './components/Achievements';
 import Toppers from './components/Toppers';
+import Reviews from './components/Reviews';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import SilverJubileeBadge from './components/SilverJubileeBadge';
@@ -59,6 +60,10 @@ function App() {
         
         <div className="fade-in">
           <Toppers />
+        </div>
+
+        <div className="fade-in">
+          <Reviews />
         </div>
       </main>
       <Footer />

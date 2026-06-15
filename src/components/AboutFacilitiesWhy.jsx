@@ -17,10 +17,10 @@ const AboutFacilitiesWhy = () => {
       textAlign: 'center'
     }}>
       {/* LEFT: QUOTE BLOCK */}
-      <div style={{ 
-        position: 'relative', 
-        display: 'flex', 
-        flexDirection: 'column', 
+      <div style={{
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         minHeight: '200px'
@@ -36,7 +36,7 @@ const AboutFacilitiesWhy = () => {
           zIndex: '0',
           fontWeight: 'bold',
           whiteSpace: 'nowrap'
-        }}>SKES</div>
+        }}>SKEI</div>
         <div style={{ zIndex: '1' }}>
           <p style={{
             fontSize: 'clamp(20px, 3vw, 24px)',
@@ -79,7 +79,8 @@ const AboutFacilitiesWhy = () => {
         </ul>
       </div>
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @media (max-width: 1024px) {
           .about-facilities-why { grid-template-columns: 1fr !important; }
         }
@@ -89,19 +90,19 @@ const AboutFacilitiesWhy = () => {
 };
 
 const ListItem = ({ text }) => (
-  <li style={{ 
-    display: 'flex', 
-    alignItems: 'flex-start', 
+  <li style={{
+    display: 'flex',
+    alignItems: 'flex-start',
     marginBottom: '20px',
     fontSize: '15px',
     fontWeight: '500',
     color: 'var(--text-dark)'
   }}>
-    <span style={{ 
-      minWidth: '22px', 
-      height: '22px', 
-      borderRadius: '50%', 
-      backgroundColor: 'var(--gold)', 
+    <span style={{
+      minWidth: '22px',
+      height: '22px',
+      borderRadius: '50%',
+      backgroundColor: 'var(--gold)',
       color: 'var(--deep-blue)',
       display: 'flex',
       alignItems: 'center',

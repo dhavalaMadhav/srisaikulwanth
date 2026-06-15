@@ -39,16 +39,16 @@ const Footer = () => {
             Sai Kulwanth Educational Institutions (established at Anakapalle, 2001) provides free education based on the philosophy of Integral Education — offering both Intermediate and Degree programs.
           </p>
         </div>
-        
+
 
         {/* Info */}
         <div>
-          <h4 style={{ marginBottom: '20px', letterSpacing: '1px' }}>Educational Society Info</h4>
+          <h4 style={{ marginBottom: '20px', letterSpacing: '1px' }}>Educational Institutions Info</h4>
           <p style={{ opacity: '0.8', fontSize: '14px', marginBottom: '10px' }}>Affiliated with Andhra University</p>
           <p style={{ opacity: '0.8', fontSize: '14px', marginBottom: '10px' }}>Anakapalle Campus</p>
           <p style={{ opacity: '0.8', fontSize: '14px', marginBottom: '10px' }}>Visakhapatnam, AP</p>
         </div>
-        
+
         {/* Contact */}
         <div>
           <h4 style={{ marginBottom: '20px', letterSpacing: '1px' }}>Contact</h4>
@@ -101,7 +101,8 @@ const Footer = () => {
         © 2026 Sai Kulwanth Educational Institutions. All Rights Reserved. | Affiliated with AU, Visakhapatnam.
       </div>
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @media (max-width: 768px) {
           .footer-top-grid { grid-template-columns: 1fr !important; gap: 30px !important; text-align: center; }
           .footer-map-row { grid-template-columns: 1fr !important; }
