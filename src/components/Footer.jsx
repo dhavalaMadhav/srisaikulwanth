@@ -80,7 +80,7 @@ const Footer = () => {
           </div>
           <iframe
             title="Sai Kulwanth Educational Institutions Location"
-            src="https://maps.google.com/maps?q=17.6881014,83.005051+(Sai%20Kulwanth%20Edu%20Institutions)&hl=en&z=20&output=embed"
+            src="https://maps.google.com/maps?q=Sri%20Sai%20Kulwanth%20Degree%20College,%20Anakapalle&hl=en&z=19&output=embed"
             width="100%"
             height="220"
             style={{ border: 'none', display: 'block' }}

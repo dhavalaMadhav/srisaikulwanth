@@ -100,7 +100,7 @@ const Hero = () => {
             </p>
             <div style={{ textAlign: 'center' }}>
               <strong style={{ display: 'block', fontSize: '18px' }}>Mumidisetty kamaraju</strong>
-              <small style={{ opacity: '0.8' }}>Founder</small>
+              <small style={{ opacity: '0.8' }}>Principal</small>
             </div>
           </div>
         </div>

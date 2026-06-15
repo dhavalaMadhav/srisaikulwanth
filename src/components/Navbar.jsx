@@ -48,7 +48,7 @@ const Navbar = () => {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        zIndex: '2000',
+        zIndex: '12000',
         backgroundColor: scrolled ? '#f0f4f8' : 'transparent',
         backdropFilter: scrolled ? 'blur(10px)' : 'none',
         borderBottom: scrolled ? '1px solid rgba(0, 0, 0, 0.05)' : 'none',
@@ -95,7 +95,7 @@ const Navbar = () => {
           display: 'none',
           color: scrolled ? 'var(--deep-blue)' : 'white',
           cursor: 'pointer',
-          zIndex: '2001',
+          zIndex: '12001',
           transition: 'color 0.4s ease'
         }}>
           {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
@@ -116,7 +116,7 @@ const Navbar = () => {
           gap: '30px',
           transition: 'right 0.4s ease-in-out',
           boxShadow: '-10px 0 30px rgba(0,0,0,0.5)',
-          zIndex: '2000'
+          zIndex: '12000'
         }}>
           {navLinks.map((link, i) => (
             <a key={i} href={link.href} onClick={(e) => handleNavClick(e, link.href)} style={{
@@ -168,7 +168,7 @@ const Navbar = () => {
             width: '100vw',
             height: '100vh',
             backgroundColor: 'rgba(0,0,0,0.5)',
-            zIndex: '1999'
+            zIndex: '11999'
           }}></div>
         )}
 

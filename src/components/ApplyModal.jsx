@@ -238,14 +238,14 @@ const ApplyModal = ({ isOpen, onClose }) => {
           position: fixed;
           inset: 0;
           background: rgba(0,0,0,0.65);
-          z-index: 9000;
+          z-index: 15000;
           animation: fadeIn 0.25s ease;
         }
         .apply-modal {
           position: fixed;
           top: 50%; left: 50%;
           transform: translate(-50%, -50%);
-          z-index: 9001;
+          z-index: 15001;
           background: white;
           width: min(600px, 95vw);
           max-height: 90vh;

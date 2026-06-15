@@ -54,6 +54,7 @@ const Reviews = () => {
 
   const modalRef = useRef(null);
   const triggerRef = useRef(null);
+  const prevModalOpen = useRef(false);
 
   useEffect(() => {
     if (isModalOpen) {
@@ -65,10 +66,15 @@ const Reviews = () => {
       }
     } else {
       document.body.style.overflow = '';
-      if (triggerRef.current) {
-        triggerRef.current.focus();
+      // Only focus the trigger button if the modal transitioned from open to closed
+      if (prevModalOpen.current) {
+        if (triggerRef.current) {
+          triggerRef.current.focus();
+        }
       }
     }
+    // Update ref to track state for next run
+    prevModalOpen.current = isModalOpen;
     return () => { document.body.style.overflow = ''; };
   }, [isModalOpen]);
 
@@ -417,7 +423,7 @@ const Reviews = () => {
       {/* Modal Dialog rendered via React Portal to escape transformed parents */}
       {isModalOpen && createPortal(
         <>
-          {/* Backdrop */}
+          {/* Backdrop - High z-index (15000) to layer on top of Silver Jubilee Badge (9999) */}
           <div
             className="modal-backdrop"
             onClick={handleClose}
@@ -425,13 +431,13 @@ const Reviews = () => {
               position: 'fixed',
               inset: 0,
               background: 'rgba(0, 0, 0, 0.65)',
-              zIndex: 9000,
+              zIndex: 15000,
               backdropFilter: 'blur(3px)',
               animation: 'fadeIn 0.25s ease'
             }}
           />
 
-          {/* Modal Centering Wrapper - Fixed relative to viewport, centering the card */}
+          {/* Modal Centering Wrapper - High z-index (15001) */}
           <div
             className="modal-wrapper"
             style={{
@@ -440,7 +446,7 @@ const Reviews = () => {
               display: 'flex',
               alignItems: 'center', // Centered vertically in viewport
               justifyContent: 'center', // Centered horizontally in viewport
-              zIndex: 9001,
+              zIndex: 15001,
               padding: '16px',
               pointerEvents: 'none',
               overflowY: 'auto'
