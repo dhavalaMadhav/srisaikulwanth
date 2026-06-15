@@ -261,7 +261,7 @@ const FeatureGalleryModal = ({ isOpen, onClose, category }) => {
           height: 100vh;
           background: rgba(0, 0, 0, 0.7);
           backdrop-filter: blur(5px);
-          z-index: 10000;
+          z-index: 15000;
           display: flex;
           justify-content: center;
           align-items: center;
