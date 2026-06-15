@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { Star, Quote, X, MessageSquarePlus } from 'lucide-react';
 
 const initialReviews = [
@@ -413,8 +414,8 @@ const Reviews = () => {
         </p>
       </div>
 
-      {/* Modal Dialog */}
-      {isModalOpen && (
+      {/* Modal Dialog rendered via React Portal to escape transformed parents */}
+      {isModalOpen && createPortal(
         <>
           {/* Backdrop */}
           <div
@@ -430,22 +431,22 @@ const Reviews = () => {
             }}
           />
 
-          {/* Modal Positioning Wrapper - Set to flex-start and padded to push upwards */}
+          {/* Modal Centering Wrapper - Fixed relative to viewport, centering the card */}
           <div
             className="modal-wrapper"
             style={{
               position: 'fixed',
               inset: 0,
               display: 'flex',
-              alignItems: 'flex-start', // Align elements to the top of the wrapper
-              justifyContent: 'center',
+              alignItems: 'center', // Centered vertically in viewport
+              justifyContent: 'center', // Centered horizontally in viewport
               zIndex: 9001,
-              padding: '60px 16px 20px', // Push modal 60px down from top edge of screen
+              padding: '16px',
               pointerEvents: 'none',
               overflowY: 'auto'
             }}
           >
-            {/* Modal Content Card */}
+            {/* Modal Content Card - Centered inside the black background, locked height */}
             <div
               ref={modalRef}
               className="review-modal"
@@ -456,12 +457,13 @@ const Reviews = () => {
                 pointerEvents: 'auto',
                 background: '#ffffff',
                 width: 'min(480px, 95vw)',
-                maxHeight: 'calc(100vh - 110px)', // Restricts max height to fit viewport space minus padding
+                height: 'min(500px, 80vh)', // Stable height preventing content jumps
+                maxHeight: 'calc(100vh - 40px)',
                 display: 'flex',
                 flexDirection: 'column',
                 borderRadius: '8px',
                 boxShadow: '0 25px 80px rgba(0, 0, 0, 0.3)',
-                animation: 'modalSlideIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1)',
+                animation: 'reviewModalSlideIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1)',
                 position: 'relative',
                 overflow: 'hidden'
               }}
@@ -498,7 +500,11 @@ const Reviews = () => {
                 style={{
                   overflowY: 'auto',
                   padding: '24px 24px 20px',
-                  scrollbarWidth: 'thin'
+                  scrollbarWidth: 'thin',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: submitted ? 'center' : 'flex-start'
                 }}
               >
                 {submitted ? (
@@ -709,7 +715,8 @@ const Reviews = () => {
               </div>
             </div>
           </div>
-        </>
+        </>,
+        document.body
       )}
 
       {/* Styled styles scoped for reviews component */}
@@ -786,7 +793,7 @@ const Reviews = () => {
           transform: translateY(-2px);
         }
 
-        @keyframes modalSlideIn {
+        @keyframes reviewModalSlideIn {
           from { transform: translateY(20px); opacity: 0; }
           to { transform: translateY(0); opacity: 1; }
         }

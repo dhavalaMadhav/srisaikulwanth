@@ -252,12 +252,12 @@ const ApplyModal = ({ isOpen, onClose }) => {
           overflow-y: auto;
           padding: clamp(28px, 5vw, 48px);
           box-shadow: 0 25px 80px rgba(0,0,0,0.4);
-          animation: modalSlideIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+          animation: applyModalSlideIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
           scrollbar-width: thin;
         }
         .apply-modal::-webkit-scrollbar { width: 4px; }
         .apply-modal::-webkit-scrollbar-thumb { background: var(--gold); }
-        @keyframes modalSlideIn {
+        @keyframes applyModalSlideIn {
           from { transform: translate(-50%, -46%); opacity: 0; }
           to { transform: translate(-50%, -50%); opacity: 1; }
         }

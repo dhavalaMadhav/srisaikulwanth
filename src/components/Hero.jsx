@@ -115,7 +115,7 @@ const Hero = () => {
         }
         @media (max-width: 768px) {
           .custom-hero-bg {
-            background-image: url('/images/baba.jpeg');
+            background-image: url('/images/Sai Kulwanth Mobile View.png');
             background-size: cover !important;
             background-position: center !important;
           }
